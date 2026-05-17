@@ -22,6 +22,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import com.example.app01.R
+import androidx.compose.ui.text.style.TextAlign
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,54 +68,97 @@ fun MainScreen() {
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
 
-                Card(
-                    modifier = Modifier
-                        .padding(8.dp)
-                        .weight(1f)
-                ) {
-                    Column(
-                        modifier = Modifier.padding(16.dp)
-                    ) {
-                        Text(
-                            text = "Geography",
-                            fontWeight = FontWeight.Bold
-                        )
-
-                        Spacer(modifier = Modifier.height(8.dp))
-
-                        Text(
-                            text = "Leuchtturm in 300sm"
-                        )
-                    }
-                }
 
                 Card(
                     modifier = Modifier
                         .padding(8.dp)
                         .weight(1f)
                 ) {
+
                     Column(
-                        modifier = Modifier.padding(16.dp)
+                        modifier = Modifier.padding(16.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally
                     ) {
+
                         Text(
-                            text = "Vessel",
-                            fontWeight = FontWeight.Bold
+                            text = "WARNING!",
+                            color = Color.Red,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 18.sp
                         )
 
                         Spacer(modifier = Modifier.height(8.dp))
 
                         Text(
-                            text = "Kiel 30m über Grund"
+                            text = "Leuchtturm in 300m",
+                            textAlign = androidx.compose.ui.text.style.TextAlign.Center
+                        )
+
+                        Spacer(modifier = Modifier.height(12.dp))
+
+                        Text(
+                            text = "🗼",
+                            fontSize = 32.sp
+                        )
+
+                        Spacer(modifier = Modifier.height(8.dp))
+
+                        Text(
+                            text = "crash in 3 mins presumed",
+                            fontSize = 12.sp,
+                            color = Color.Red,
+                            fontWeight = FontWeight.SemiBold,
+                            textAlign = androidx.compose.ui.text.style.TextAlign.Center
                         )
                     }
                 }
+
+
+                Card(
+                    modifier = Modifier
+                        .padding(8.dp)
+                        .weight(1f),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White
+                    )
+                ) {
+
+                    Column(
+                        modifier = Modifier
+                            .padding(16.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+
+                        Text(
+                            text = "Info",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 18.sp,
+                            color = Color.Black,
+                            textAlign = TextAlign.Center
+                        )
+
+                        Spacer(modifier = Modifier.height(12.dp))
+
+                        Text(
+                            text = "Kiel 30m über Grund",
+                            textAlign = TextAlign.Center
+                        )
+
+                        Text(
+                            text = "Wind speed: 5knts",
+                            textAlign = TextAlign.Center
+                        )
+                    }
+                }
+
+
             }
 
             Spacer(modifier = Modifier.height(40.dp))
 
             // Haupttext
             Text(
-                text = "17knts\n189DEG",
+                text = "17knts / 189°",
                 fontSize = 36.sp,
                 fontWeight = FontWeight.Bold,
                 lineHeight = 42.sp
@@ -131,7 +175,7 @@ fun MainScreen() {
                 )
             ) {
                 Text(
-                    text = "ALL MEN ON DECK!",
+                    text = "ALL MEN ON DECK",
                     fontWeight = FontWeight.Bold
                 )
             }
