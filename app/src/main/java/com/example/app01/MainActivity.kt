@@ -4,12 +4,14 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.app01.ui.theme.App01Theme
 
@@ -20,20 +22,47 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             App01Theme {
-                Greeting(name = "meine App01")
+                MainScreen()
             }
         }
     }
 }
+
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hallo $name 👋")
+fun MainScreen() {
+
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+
+            Text(
+                text = "Hallo Martin",
+                fontSize = 36.sp,
+                fontWeight = FontWeight.Bold
+            )
+
+            Spacer(modifier = Modifier.height(24.dp))
+
+            Button(
+                onClick = {
+                    // Hier kommt später deine Aktion rein
+                }
+            ) {
+                Text("Klick mich")
+            }
+        }
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun PreviewMainScreen() {
     App01Theme {
-        Greeting("Android")
+        MainScreen()
     }
 }
