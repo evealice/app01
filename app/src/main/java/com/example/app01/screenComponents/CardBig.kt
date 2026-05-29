@@ -9,18 +9,28 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.text.style.TextAlign
+import com.example.app01.dataHandlers.ViewApi01
 
 @Composable
-fun CardBig() {
+fun CardBig(viewModel: ViewApi01) {
+
+    val data = viewModel.situation
+
     Column(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "17knts / 189°",
-            fontSize = 36.sp,
+            text = if (data != null)
+                "${"%.4f".format(data.data.ownship.lat)} , ${"%.4f".format(data.data.ownship.lon)}\n" +
+                "${data.data.ownship.sog_kn} kn"
+            else
+                "Loading...",
+            fontSize = 32.sp,
             fontWeight = FontWeight.Bold,
-            lineHeight = 42.sp
+            lineHeight = 42.sp,
+            textAlign = TextAlign.Center
         )
         Spacer(modifier = Modifier.height(16.dp))
         Button(

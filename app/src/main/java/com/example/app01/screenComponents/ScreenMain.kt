@@ -5,30 +5,24 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.app01.dataHandlers.ViewApi01
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
-fun ScreenMain() {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
+fun ScreenMain(viewModel: ViewApi01 = viewModel()) {
+
+    Column(
+        modifier = Modifier.fillMaxSize().padding(vertical = 30.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(20.dp)
     ) {
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.SpaceBetween
-        ) {
-            Spacer(modifier = Modifier.height(30.dp))
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceEvenly
-            ) {
-                CardWarning(modifier = Modifier.weight(1f))
-                CardInfo(modifier = Modifier.weight(1f))
-            }
-            CardBig()
-            CardMap()
-            Spacer(modifier = Modifier.height(30.dp))
-        }
+        CardWarning()
+        CardInfo(viewModel)
+        CardBig(viewModel)
+        CardMap()
+        // CardApi()
+        // CardTest()
+        // CardInfo(modifier = Modifier.weight(1f))
     }
 }
 
